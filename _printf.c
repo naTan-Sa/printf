@@ -8,12 +8,9 @@
  * and prints output directly to stdout using _putchar.
  * Return: The number of characters printed (excluding the null byte).
  */
-int _printf(const char *format, ...)
-{
-
+int _printf(const char *format, ...){
 	int count = 0, i = 0;
 	va_list args;
-
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
@@ -27,7 +24,8 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 			{
-				va_end(args), return (-1);
+				va_end(args);
+				return (-1);
 			}
 			switch (format[i + 1])
 			{
@@ -49,5 +47,5 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	va_end(args), return (count);
-}
+	va_end(args);
+	return (count);}
