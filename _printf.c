@@ -8,9 +8,11 @@
  * and prints output directly to stdout using _putchar.
  * Return: The number of characters printed (excluding the null byte).
  */
-int _printf(const char *format, ...){
+int _printf(const char *format, ...)
+{
 	int count = 0, i = 0;
 	va_list args;
+
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
@@ -39,8 +41,7 @@ int _printf(const char *format, ...){
 					_putchar('%'), count++;
 					break;
 				default:
-					_putchar('%');
-					_putchar(format[i + 1]), count += 2;
+					_putchar('%'), _putchar(format[i + 1]), count += 2;
 					break;
 			}
 			i++;
@@ -48,4 +49,5 @@ int _printf(const char *format, ...){
 		i++;
 	}
 	va_end(args);
-	return (count);}
+	return (count);
+}
