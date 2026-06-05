@@ -6,12 +6,12 @@
  *
  * Return: Number of digits printed.
  */
-int binaty_recursion(unsigned int num)
+int binary_recursion(unsigned int num)
 {
 	int count = 0;
 
 	if (num / 2 != 0)
-		count += binery_recursion(num / 2);
+		count += binary_recursion(num / 2);
 
 	_putchar((num % 2) + '0');
 	return (count + 1);
