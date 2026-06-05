@@ -15,6 +15,10 @@ int check_spec(char format_char, va_list args)
 		{"d", _print_int},
 		{"i", _print_int},
 		{"b", _print_binary},
+		{"u", _print_unsigned},
+		{"o", _print_octal},
+		{"x", _print_hex_lower},
+		{"X", _print_hex_upper},
 		{NULL, NULL}
 	};
 
