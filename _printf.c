@@ -14,6 +14,7 @@ int check_spec(char format_char, va_list args)
 		{"s", _puts},
 		{"d", _print_int},
 		{"i", _print_int},
+		{"b", _print_binary},
 		{NULL, NULL}
 	};
 
