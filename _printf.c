@@ -1,6 +1,33 @@
 #include "main.h"
 
 /**
+ * check_spec - matches a format flag with its processing worker.
+ * @format_char: the potential specifier character.
+ * @args: the vardic srgument stack scout.
+ *
+ * Return: Number of characters printed, or 0 if no match.
+ */
+int check_spec(char format_char, va_list args)
+{
+	spec_t specs[] = {
+		{"c", _print_char},
+		{"s", _puts},
+		{"d", _print_int},
+		{"i", _print_int},
+		{NULL, NULL}
+	};
+
+	int i = 0;
+
+	while (specs[i].valid != NULL)
+	{
+		if (specs[i].valid[0] == format_char)
+			return (specs[i].f(args));
+		i++;
+	}
+	return (0);
+}
+/**
  * _printf - Produces output according to a format string.
  * @format: A character string containing characters and specifiers.
  *
@@ -10,7 +37,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, i = 0;
+	int count = 0, i = 0, printed = 0;
 	va_list args;
 
 	if (format == NULL)
@@ -29,22 +56,18 @@ int _printf(const char *format, ...)
 				va_end(args);
 				return (-1);
 			}
-			switch (format[i + 1])
+			if (format[i + 1] == '%')
 			{
-				case 'c':
-					_putchar(va_arg(args, int)), count++;
-					break;
-				case 's':
-					count += _puts(va_arg(args, char*));
-					break;
-				case '%':
-					_putchar('%'), count++;
-					break;
-				default:
-					_putchar('%'), _putchar(format[i + 1]), count += 2;
-					break;
+				_putchar('%'), count++, i++;
 			}
-			i++;
+			else
+			{
+				printed = check_spec(format[i + 1], args);
+				if (printed > 0)
+					count += printed, i++;
+				else
+					_putchar('%'), count++;
+			}
 		}
 		i++;
 	}
