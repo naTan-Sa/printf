@@ -40,4 +40,7 @@ int _print_binary(va_list args);
 int _print_custom_string(va_list args);
 int print_hex_padding(char c);
 
+/* Task 6 Pointer Address Blueprints */
+int _print_pointer(va_list args);
+int pointer_recursion(unsigned long int num);
 #endif /* MAIN_H */
