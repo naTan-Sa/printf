@@ -19,6 +19,7 @@ int check_spec(char format_char, va_list args)
 		{"o", _print_octal},
 		{"x", _print_hex_lower},
 		{"X", _print_hex_upper},
+		{"S", _print_custom_string},
 		{NULL, NULL}
 	};
 
