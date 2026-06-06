@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_hex_padding - Prints a two digit uppercase hex value for a n ASCII code.
+ * print_hex_padding - Prints a 2 digit uppercase hex value for an ASCII code
  * @c: The non printable character.
  *
  * Return: Always 2 (two hex digits).
@@ -14,7 +14,7 @@ int print_hex_padding(char c)
 	_putchar(hex[(unsigned char)c % 16]);
 
 	return (2);
-} 
+}
 
 /**
  * _print_custom_string - Prints a string, converting non printable characters.
