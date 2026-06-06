@@ -36,4 +36,8 @@ int _print_hex_lower(va_list args);
 int _print_hex_upper(va_list args);
 int _print_binary(va_list args);
 
+/* Task 5 Custom Non-Printable String Blueprints */
+int _print_custom_string(va_list args);
+int print_hex_padding(char c);
+
 #endif /* MAIN_H */
