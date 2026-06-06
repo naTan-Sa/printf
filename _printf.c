@@ -20,6 +20,7 @@ int check_spec(char format_char, va_list args)
 		{"x", _print_hex_lower},
 		{"X", _print_hex_upper},
 		{"S", _print_custom_string},
+		{"p", _print_pointer},
 		{NULL, NULL}
 	};
 
